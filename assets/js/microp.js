@@ -41,7 +41,10 @@ jQuery(document).ready(function($) {
 		tb_position();
 	});
 	 
-	 function adjustWindowSize() {
+	 function adjustMicWindowSize() {
+		 	if( ! $('#TB_ajaxContent .mic-editor-wrapper').length) {
+		 		return;
+		 	}
 			var tbWindow = $('#TB_window'), width = $(window).width(), H = 560, W = ( 980 < width ) ? 980 : width, adminbar_height = 0;
 
 			if ( $('body.admin-bar').length )
@@ -56,6 +59,6 @@ jQuery(document).ready(function($) {
 			};
 	 }
 	 
-	 setInterval(adjustWindowSize, 200);
+	 setInterval(adjustMicWindowSize, 200);
 
 });

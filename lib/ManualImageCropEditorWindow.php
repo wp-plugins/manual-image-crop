@@ -134,16 +134,18 @@ class ManualImageCropEditorWindow {
 			mic_edited_size = '<?php echo $editedSize; ?>';
 			mic_preview_scale = <?php echo $previewRatio; ?>;
 			
-			$('#jcrop_target').Jcrop({
-				onChange: showPreview,
-				onSelect: showPreview,
-				minSize: [<?php echo $minWidth; ?>, <?php echo $minHeight; ?>],
-				maxSize: [<?php echo $previewWidth; ?>, <?php echo $previewHeight; ?>],
-				aspectRatio: <?php echo $aspectRatio; ?>,
-				setSelect: [<?php echo max(0, ($previewWidth - ($previewHeight * $aspectRatio)) / 2) ?>, <?php echo max(0, ($previewHeight - ($previewWidth / $aspectRatio)) / 2) ?>, <?php echo $previewWidth * $aspectRatio; ?>, <?php echo $previewHeight; ?>]
-			}, function() {
+			setTimeout(function() { 
+				$('#jcrop_target').Jcrop({
+					onChange: showPreview,
+					onSelect: showPreview,
+					minSize: [<?php echo $minWidth; ?>, <?php echo $minHeight; ?>],
+					maxSize: [<?php echo $previewWidth; ?>, <?php echo $previewHeight; ?>],
+					aspectRatio: <?php echo $aspectRatio; ?>,
+					setSelect: [<?php echo max(0, ($previewWidth - ($previewHeight * $aspectRatio)) / 2) ?>, <?php echo max(0, ($previewHeight - ($previewWidth / $aspectRatio)) / 2) ?>, <?php echo $previewWidth * $aspectRatio; ?>, <?php echo $previewHeight; ?>]
+				}, function() {
 					jcrop_api = this;
 				});
+			}, 300);
 
 			function showPreview(coords) {
 				var rx = <?php echo $smallPreviewWidth; ?> / coords.w;

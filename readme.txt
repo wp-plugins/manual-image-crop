@@ -37,3 +37,7 @@ Automatically:
 
 = 1.0 =
 Initial version
+
+= 1.01 =
+-Fixed Chrome stretched image issue
+-Improved compatibility with other plugins using 'thickbox'
