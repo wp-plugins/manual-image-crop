@@ -14,7 +14,7 @@ Plugin allows you to manually crop all the image sizes registered in your WordPr
 
 Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 Simply click on the "Crop" link next to any image in your media library. 
-The "lightbox" style interface will be brought up and you are ready to.
+The "lightbox" style interface will be brought up and you are ready to go.
 Whole cropping process is really intuitive and simple.
 
 Apart from media library list, the plugin adds links in few more places:
