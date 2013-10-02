@@ -1,4 +1,4 @@
-=== Manual Imag Crop ===
+=== Manual Image Crop ===
 Contributors: tomasz.sita
 Tags: crop, cropping, thumbnail, feature image, gallery, images, picture, image
 Requires at least: 3.0.1
@@ -12,9 +12,9 @@ Plugin allows you to manually crop all the image sizes registred in your WordPre
 
 == Description ==
 
-Plugin allows you to manually crop all the image sizes registred in your WordPress theme (in particular featured image).
+Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 Simply click on the "Crop" link next to any image in your media library. 
-The "lightbox" like interface will be brought up and and you ready to.
+The "lightbox" like interface will be brought up and you are ready to.
 Whole cropping process is really intuitive and simple.
 
 Apart from media library list, the plugin adds links in few more places:
