@@ -1,6 +1,6 @@
 === Manual Image Crop ===
 Contributors: tomasz.sita
-Tags: crop, cropping, thumbnail, feature image, gallery, images, picture, image
+Tags: crop, cropping, thumbnail, featured image, gallery, images, picture, image, image area
 Requires at least: 3.0.1
 Tested up to: 3.6
 License: GPLv2 or later
