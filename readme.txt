@@ -7,14 +7,14 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Stable tag: trunk
 
-Plugin allows you to manually crop all the image sizes registred in your WordPress theme (in particular featured image).
+Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 
 
 == Description ==
 
 Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 Simply click on the "Crop" link next to any image in your media library. 
-The "lightbox" like interface will be brought up and you are ready to.
+The "lightbox" style interface will be brought up and you are ready to.
 Whole cropping process is really intuitive and simple.
 
 Apart from media library list, the plugin adds links in few more places:
