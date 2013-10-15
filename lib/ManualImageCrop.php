@@ -132,21 +132,23 @@ setInterval(function() {
 	 */
 	public function cropImage() {
 		global $_wp_additional_image_sizes;
+
+		$uploadsDir = wp_upload_dir();
 		
 		$src_file_url = wp_get_attachment_image_src($_POST['attachmentId'], 'full');
 		if (!$src_file_url) {
 			echo json_encode (array('status' => 'error', 'message' => 'wrong attachement' ) );
 			exit;
 		}
-		$src_file = ABSPATH . str_replace(get_bloginfo('url'), '', $src_file_url[0]);
+		$src_file = str_replace($uploadsDir['baseurl'], $uploadsDir['basedir'], $src_file_url[0]);
 		
 		$dst_file_url = wp_get_attachment_image_src($_POST['attachmentId'], $_POST['editedSize']);
 		if (!$dst_file_url) {
 			echo json_encode (array('status' => 'error', 'message' => 'wrong size' ) );
 			exit;
 		}
-		$dst_file = ABSPATH . str_replace(get_bloginfo('url'), '', $dst_file_url[0]);
-		
+		$dst_file = str_replace($uploadsDir['baseurl'], $uploadsDir['basedir'], $dst_file_url[0]);
+
 		if (isset($_wp_additional_image_sizes[$_POST['editedSize']])) {
 			$dst_w = min(intval($_wp_additional_image_sizes[$_POST['editedSize']]['width']), $_POST['select']['w'] * $_POST['previewScale']);;
 			$dst_h = min(intval($_wp_additional_image_sizes[$_POST['editedSize']]['height']), $_POST['select']['h'] * $_POST['previewScale']);

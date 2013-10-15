@@ -53,8 +53,16 @@ class ManualImageCropEditorWindow {
 					$height = get_option($editedSize.'_size_h');
 					$cropMethod = get_option($editedSize.'_crop');
 				}
+
+				$uploadsDir = wp_upload_dir();
 				
-				$sizes = getimagesize(wp_get_attachment_url($_GET['postId'], 'full'));
+				$src_file_url = wp_get_attachment_image_src($_GET['postId'], 'full');
+				if (!$src_file_url) {
+					echo json_encode (array('status' => 'error', 'message' => 'wrong attachement' ) );
+					exit;
+				}
+				$src_file = str_replace($uploadsDir['baseurl'], $uploadsDir['basedir'], $src_file_url[0]);
+				$sizes = getimagesize($src_file);
 				
 				$previewWidth = min($sizes[0], 500);
 				$previewHeight = min($sizes[1], 350);
