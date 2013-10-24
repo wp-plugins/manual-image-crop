@@ -149,6 +149,19 @@ setInterval(function() {
 		}
 		$dst_file = str_replace($uploadsDir['baseurl'], $uploadsDir['basedir'], $dst_file_url[0]);
 
+		if ($dst_file == $src_file) {
+			$attachmentData = wp_generate_attachment_metadata( $_POST['attachmentId'], $dst_file );
+			
+			//new destination file path - replaces original file name with the correct one
+			$dst_file = str_replace( basename($attachmentData['file']), $attachmentData['sizes'][ $_POST['editedSize'] ]['file'], $dst_file);
+
+			//saves new path to the image size in the database
+			wp_update_attachment_metadata( $_POST['attachmentId'],  $attachmentData );
+			
+			//retirives the new url to file (needet to refresh the preview)
+			$dst_file_url = wp_get_attachment_image_src($_POST['attachmentId'], $_POST['editedSize']);
+		}
+		
 		if (isset($_wp_additional_image_sizes[$_POST['editedSize']])) {
 			$dst_w = min(intval($_wp_additional_image_sizes[$_POST['editedSize']]['width']), $_POST['select']['w'] * $_POST['previewScale']);;
 			$dst_h = min(intval($_wp_additional_image_sizes[$_POST['editedSize']]['height']), $_POST['select']['h'] * $_POST['previewScale']);

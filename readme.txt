@@ -2,10 +2,10 @@
 Contributors: tomasz.sita
 Tags: crop, cropping, thumbnail, featured image, gallery, images, picture, image, image area
 Requires at least: 3.0.1
-Tested up to: 3.6
+Tested up to: 3.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.02
+Stable tag: 1.03
 
 Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 
@@ -18,8 +18,8 @@ The "lightbox" style interface will be brought up and you are ready to go.
 Whole cropping process is really intuitive and simple.
 
 Apart from media library list, the plugin adds links in few more places:
--below featured image box ("Crop featured image")
--In the media insert modal window (once you select an image)
+* Below featured image box ("Crop featured image")
+* In the media insert modal window (once you select an image)
 
 
 == Installation ==
@@ -35,13 +35,16 @@ Automatically:
 
 == Changelog ==
 
+= 1.03 =
+* Fixed the issue with overwriting the original image when cropping image size registered after the attachment had been uploaded
+
 = 1.02 =
--Fixed HTTP Authentication no preview issue
--Fixed path issues on multisite/subfolder WP installations
+* Fixed HTTP Authentication no preview issue
+* Fixed path issues on multisite/subfolder WP installations
 
 = 1.01 =
--Fixed Chrome stretched image issue
--Improved compatibility with other plugins using 'thickbox'
+* Fixed Chrome stretched image issue
+* Improved compatibility with other plugins using 'thickbox'
 
 = 1.0 =
-Initial version
+* Initial version
