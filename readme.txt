@@ -34,7 +34,7 @@ Automatically:
 
 == Changelog ==
 
-= 1.04 
+= 1.04 =
 * Added remembering of the previously selected area after cropping the specific image size
 * Fixed the "wp_enqueue_script was called incorrectly" warning in the WP debug mode
 
