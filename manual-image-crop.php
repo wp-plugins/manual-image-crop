@@ -3,19 +3,25 @@
 Plugin Name: Manual Image Crop
 Plugin URI: http://www.rocketmill.co.uk/wordpress-plugin-manual-image-crop
 Description: Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image). Simply click on the "Crop" link next to any image in your media library and select the area of the image you want to crop.
-Version: 1.03
+Version: 1.04
 Author: Tomasz Sita
 Author URI: http://www.rocketmill.co.uk/author/tomasz
 License: GPL2
 */
 
-define('mic_VERSION', '1.02');
+define('mic_VERSION', '1.04');
 
 include_once(dirname(__FILE__) . '/lib/ManualImageCrop.php');
 include_once(dirname(__FILE__) . '/lib/ManualImageCropEditorWindow.php');
 
 //mic - stands for Manual Image Crop
 
+
+add_action('plugins_loaded', 'mic_init_plugin');
+
+/**
+ * inits the plugin
+ */
 function mic_init_plugin() {
 	if (! is_admin()) {
 		//we are gonna use our plugin in the admin area only, so ends here if it's a frontend
@@ -23,7 +29,7 @@ function mic_init_plugin() {
 	}
 
 	$ManualImageCrop = ManualImageCrop::getInstance();
-	add_action( 'admin_head', array($ManualImageCrop, 'enqueueAssets') );
+	add_action( 'admin_enqueue_scripts', array($ManualImageCrop, 'enqueueAssets') );
 	$ManualImageCrop->addEditorLinks();
 
 	//attach admin actions
@@ -31,17 +37,21 @@ function mic_init_plugin() {
 	add_action('wp_ajax_mic_crop_image', 'mic_ajax_crop_image');
 }
 
+/**
+ * ajax call rendering the image cropping area
+ */
 function mic_ajax_editor_window() {
 	$ManualImageCropEditorWindow = ManualImageCropEditorWindow::getInstance();
-	add_action( 'admin_head', array(ManualImageCropEditorWindow, 'enqueueAssets') );
 	$ManualImageCropEditorWindow->renderWindow();
 	exit;
 }
 
+/**
+ * ajax call that does the cropping job and overrides the previous image version
+ */
 function mic_ajax_crop_image() {
 	$ManualImageCrop = ManualImageCrop::getInstance();
 	$ManualImageCrop->cropImage();
 	exit;
 }
-
-add_action('plugins_loaded', 'mic_init_plugin');
+;

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Class responsible for rendering the cropping Window
+ * @author tomasz
+ *
+ */
 class ManualImageCropEditorWindow {
 
 	private static $instance; 
@@ -24,9 +29,9 @@ class ManualImageCropEditorWindow {
 			<h2 class="nav-tab-wrapper">
 			Pick the image size: <?php
 			global $_wp_additional_image_sizes;
-	
+
 			$imageSizes = get_intermediate_image_sizes();
-			
+
 			$editedSize = isset( $_GET['size'] ) ? $_GET['size'] : $imageSizes[0];
 			
 			foreach ($imageSizes as $s) {
@@ -44,6 +49,7 @@ class ManualImageCropEditorWindow {
 			</h2>
 			<div class="mic-left-col">
 				<?php
+				//reads the specific registered image size dimension
 				if (isset($_wp_additional_image_sizes[$editedSize])) {
 					$width = intval($_wp_additional_image_sizes[$editedSize]['width']);
 					$height = intval($_wp_additional_image_sizes[$editedSize]['height']);
@@ -55,7 +61,9 @@ class ManualImageCropEditorWindow {
 				}
 
 				$uploadsDir = wp_upload_dir();
-				
+
+				$metaData = wp_get_attachment_metadata($_GET['postId']);
+
 				$src_file_url = wp_get_attachment_image_src($_GET['postId'], 'full');
 				if (!$src_file_url) {
 					echo json_encode (array('status' => 'error', 'message' => 'wrong attachement' ) );
@@ -63,7 +71,7 @@ class ManualImageCropEditorWindow {
 				}
 				$src_file = str_replace($uploadsDir['baseurl'], $uploadsDir['basedir'], $src_file_url[0]);
 				$sizes = getimagesize($src_file);
-				
+
 				$previewWidth = min($sizes[0], 500);
 				$previewHeight = min($sizes[1], 350);
 				$previewRatio = 1;
@@ -148,8 +156,12 @@ class ManualImageCropEditorWindow {
 					onSelect: showPreview,
 					minSize: [<?php echo $minWidth; ?>, <?php echo $minHeight; ?>],
 					maxSize: [<?php echo $previewWidth; ?>, <?php echo $previewHeight; ?>],
+					<?php if ( isset( $metaData['micSelectedArea'][$editedSize] ) ) { ?>
+						setSelect: [<?php echo max(0, $metaData['micSelectedArea'][$editedSize]['x']) ?>, <?php echo max(0, $metaData['micSelectedArea'][$editedSize]['y']) ?>, <?php echo max(0, $metaData['micSelectedArea'][$editedSize]['x']) + $metaData['micSelectedArea'][$editedSize]['w']; ?>, <?php echo max(0, $metaData['micSelectedArea'][$editedSize]['y']) + $metaData['micSelectedArea'][$editedSize]['h']; ?>],
+					<?php }else { ?>
+						setSelect: [<?php echo max(0, ($previewWidth - ($previewHeight * $aspectRatio)) / 2) ?>, <?php echo max(0, ($previewHeight - ($previewWidth / $aspectRatio)) / 2) ?>, <?php echo $previewWidth * $aspectRatio; ?>, <?php echo $previewHeight; ?>],
+					<?php }?>
 					aspectRatio: <?php echo $aspectRatio; ?>,
-					setSelect: [<?php echo max(0, ($previewWidth - ($previewHeight * $aspectRatio)) / 2) ?>, <?php echo max(0, ($previewHeight - ($previewWidth / $aspectRatio)) / 2) ?>, <?php echo $previewWidth * $aspectRatio; ?>, <?php echo $previewHeight; ?>]
 				}, function() {
 					jcrop_api = this;
 				});
