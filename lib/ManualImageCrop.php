@@ -107,6 +107,7 @@ setInterval(function() {
 	 */
 	public function addAfterUploadAttachementEditLink() {
 		?>
+		<script>
 			var micEditAttachemtnLinkAdded = false;
 			var micEditAttachemtnLinkAddedInterval = 0;
 			jQuery(document).ready(function() {
@@ -126,6 +127,7 @@ setInterval(function() {
 					}
 				}, 500);
 			});
+		</script>
 	  <?php
 	}
 

@@ -10,7 +10,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 License: GPL2
 */
 
-define('mic_VERSION', '1.04');
+define('mic_VERSION', '1.05');
 
 include_once(dirname(__FILE__) . '/lib/ManualImageCrop.php');
 include_once(dirname(__FILE__) . '/lib/ManualImageCropEditorWindow.php');
