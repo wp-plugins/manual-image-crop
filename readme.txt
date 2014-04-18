@@ -2,10 +2,10 @@
 Contributors: tomasz.sita
 Tags: crop, cropping, thumbnail, featured image, gallery, images, picture, image, image area
 Requires at least: 3.0.1
-Tested up to: 3.7.1
+Tested up to: 3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.04
+Stable tag: 1.05
 
 Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 
@@ -23,16 +23,20 @@ Apart from media library list, the plugin adds links in few more places:
 
 == Installation ==
 Manually:
-1. Upload `manual-image-crop` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
+* Upload `manual-image-crop` to the `/wp-content/plugins/` directory
+* Activate the plugin through the 'Plugins' menu in WordPress
 
 Automatically:
-1. Navigate to the 'Plugins' menu inside of the wordpress wp-admin dashboard, and select AD NEW 
-2. Search for 'Manual Imag Crop', and click install 
-3. When the plugin has been installed, Click 'Activate' 
+* Navigate to the 'Plugins' menu inside of the wordpress wp-admin dashboard, and select AD NEW 
+* Search for 'Manual Imag Crop', and click install 
+* When the plugin has been installed, Click 'Activate' 
 
 
 == Changelog ==
+
+= 1.05 =
+* WordPress 3.9 compatibility issues fixed
+* Removed randomly floated 'Maximum upload file size'
 
 = 1.04 =
 * Added remembering of the previously selected area after cropping the specific image size

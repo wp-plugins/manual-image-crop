@@ -53,3 +53,7 @@
 #micSuccessMessage, #micFailureMessage {
 	display: none;
 }
+
+.crop-image {
+	margin-right: 10px;
+}

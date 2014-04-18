@@ -47,7 +47,7 @@ class ManualImageCrop {
 		add_action( 'media_row_actions', array($this, 'addMediaEditorLinks'), 10, 2 );
 		add_action( 'admin_post_thumbnail_html', array($this, 'addCropFeatureImageEditorLink'), 10, 2 );
 		add_action( 'print_media_templates', array($this, 'addAttachementEditLink') );
-		add_action( 'pre-upload-ui', array($this, 'addAfterUploadAttachementEditLink') );
+		add_action( 'admin_print_footer_scripts', array($this, 'addAfterUploadAttachementEditLink') );
 	}
 
 	/**
@@ -90,8 +90,8 @@ setInterval(function() {
 					try {
 						var mRegexp = /\?post=([0-9]+)/; 
 						var match = mRegexp.exec(jQuery('.details .edit-attachment').attr('href'));
-						jQuery('.edit-attachment.crop-image').remove();
-						jQuery('.details .edit-attachment').after( '<a class="thickbox mic-link edit-attachment crop-image" rel="crop" title="Manual Image Crop" href="' + ajaxurl + '?action=mic_editor_window&postId=' + match[1] + '">Crop Image</a>' );
+						jQuery('.crop-image-ml.crop-image').remove();
+						jQuery('.details .edit-attachment').after( '<a class="thickbox mic-link crop-image crop-image-ml" rel="crop" title="Manual Image Crop" href="' + ajaxurl + '?action=mic_editor_window&postId=' + match[1] + '">Crop Image</a> ' );
 					} catch (e) {
 						console.log(e);
 					}
@@ -106,29 +106,27 @@ setInterval(function() {
 	 * Adds link in the ligthbox media library
 	 */
 	public function addAfterUploadAttachementEditLink() {
-	?>
-	<script>
-		var micEditAttachemtnLinkAdded = false;
-		var micEditAttachemtnLinkAddedInterval = 0;
-		jQuery(document).ready(function() {
-			micEditAttachemtnLinkAddedInterval = setInterval(function() {
-				if (jQuery('#media-items .edit-attachment').length) {
-					jQuery('#media-items .edit-attachment').each(function(i, k) {
-						try {
-							var mRegexp = /\?post=([0-9]+)/; 
-							var match = mRegexp.exec(jQuery(this).attr('href'));
-							if (!jQuery(this).parent().find('.edit-attachment.crop-image').length && jQuery(this).parent().find('.pinkynail').attr('src').match(/upload/g)) {
-								jQuery(this).after( '<a class="thickbox mic-link edit-attachment crop-image" rel="crop" title="Manual Image Crop" href="' + ajaxurl + '?action=mic_editor_window&postId=' + match[1] + '">Crop Image</a>' );
+		?>
+			var micEditAttachemtnLinkAdded = false;
+			var micEditAttachemtnLinkAddedInterval = 0;
+			jQuery(document).ready(function() {
+				micEditAttachemtnLinkAddedInterval = setInterval(function() {
+					if (jQuery('#media-items .edit-attachment').length) {
+						jQuery('#media-items .edit-attachment').each(function(i, k) {
+							try {
+								var mRegexp = /\?post=([0-9]+)/; 
+								var match = mRegexp.exec(jQuery(this).attr('href'));
+								if (!jQuery(this).parent().find('.edit-attachment.crop-image').length && jQuery(this).parent().find('.pinkynail').attr('src').match(/upload/g)) {
+									jQuery(this).after( '<a class="thickbox mic-link edit-attachment crop-image" rel="crop" title="Manual Image Crop" href="' + ajaxurl + '?action=mic_editor_window&postId=' + match[1] + '">Crop Image</a>&nbsp;' );
+								}
+							} catch (e) {
+								console.log(e);
 							}
-						} catch (e) {
-							console.log(e);
-						}
-					});
-				}
-			}, 500);
-		});
-	</script>
-  <?php
+						});
+					}
+				}, 500);
+			});
+	  <?php
 	}
 
 	/**
