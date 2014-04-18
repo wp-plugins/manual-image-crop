@@ -6,6 +6,7 @@ Description: Plugin allows you to manually crop all the image sizes registered i
 Version: 1.05
 Author: Tomasz Sita
 Author URI: http://www.rocketmill.co.uk/author/tomasz
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WB5ZQWGUM7T96
 License: GPL2
 */
 
