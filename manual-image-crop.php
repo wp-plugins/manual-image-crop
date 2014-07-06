@@ -9,7 +9,7 @@ Author URI: http://www.rocketmill.co.uk/author/tomasz
 License: GPL2
 */
 
-define('mic_VERSION', '1.04');
+define('mic_VERSION', '1.1');
 
 
 include_once(dirname(__FILE__) . '/lib/ManualImageCrop.php');
