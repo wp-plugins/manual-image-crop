@@ -24,9 +24,8 @@ Apart from media library list, the plugin adds links in few more places:
 GitHub Repository:
 https://github.com/tomaszsita/wp-manual-image-crop
 
-
 Translations:
-* French (Gabriel Féron)
+* French (Gabriel FÃ©ron)
 * German (Bertram Greenhough)
 * Italian (htrex)
 * Polish (myself)
@@ -45,7 +44,7 @@ Automatically:
 * Search for 'Manual Imag Crop', and click install 
 * When the plugin has been installed, Click 'Activate' 
 
-
+== Changelog ==
 = 1.1 =
 * French, German, Italian, Polish, Spanish translations added
 * Settings page added (quality, visibility, custom labels)
