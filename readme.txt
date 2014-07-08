@@ -6,7 +6,7 @@ Requires at least: 3.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WB5ZQWGUM7T96
-Stable tag: 1.1
+Stable tag: 1.06
 
 Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 
@@ -45,7 +45,7 @@ Automatically:
 * When the plugin has been installed, Click 'Activate' 
 
 == Changelog ==
-= 1.1 =
+= 1.06 =
 * French, German, Italian, Polish, Spanish translations added
 * Settings page added (quality, visibility, custom labels)
 * Compatibility with Retina/HiDPI (@2x) plugin added
