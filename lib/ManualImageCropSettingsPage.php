@@ -21,6 +21,9 @@ class MicSettingsPage
      */
     static function getSettings() {
     	$micOptions = get_option( 'mic_options' );
+    	if ( ! isset( $micOptions['sizes_settings'] ) ) {
+    		return array();
+    	}
     	$settings = unserialize( $micOptions['sizes_settings'] );
     	$i = 0;
     	while ( ! empty($settings) && ! is_array($settings) ) {
