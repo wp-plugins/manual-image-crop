@@ -127,12 +127,11 @@ class ManualImageCropEditorWindow {
 		$minWidth = min($width / $previewRatio, $previewWidth);
 		$minHeight = min($height / $previewRatio, $previewHeight);
 
-		if ($cropMethod == 1) {
+		if ($cropMethod != 0) {
 			$aspectRatio = ($width / $height);
-			// 					if ($aspectRatio * $minWidth > $sizes[0]) {
-			// 						die('a');
-			// 						$aspectRatio = ($previewWidth / $minHeight);
-			// 					}
+			// if ($aspectRatio * $minWidth > $sizes[0]) {
+			// 	$aspectRatio = ($previewWidth / $minHeight);
+			// }
 
 			if (1 / $aspectRatio * $minHeight > $sizes[1]) {
 				$aspectRatio = ($minWidth / $previewHeight);
