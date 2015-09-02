@@ -22,6 +22,7 @@ Apart from media library list, the plugin adds links in few more places:
 
 = Enjoying using Manual Image Crop? =
 [Donate the plugin here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WB5ZQWGUM7T96 "Donate")
+
 Thank you!
 
 = GitHub Repository =
