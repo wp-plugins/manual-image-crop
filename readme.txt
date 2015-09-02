@@ -20,14 +20,14 @@ Apart from media library list, the plugin adds links in few more places:
 * Below featured image box ("Crop featured image")
 * In the media insert modal window (once you select an image)
 
-== Enjoying using Manual Image Crop? ==
+= Enjoying using Manual Image Crop? =
 [Donate the plugin here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WB5ZQWGUM7T96 "Donate")
 Thank you!
 
-== GitHub Repository ==
+= GitHub Repository =
 https://github.com/tomaszsita/wp-manual-image-crop
 
-== Translations ==
+= Translations =
 * Dutch (Bernardo Hulsman)
 * French (Gabriel Féron)
 * German (Bertram Greenhough)
