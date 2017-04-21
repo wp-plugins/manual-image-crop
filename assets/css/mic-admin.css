@@ -12,7 +12,7 @@
 
 .mic-left-col {
 	float: left;
-	width: 500px;
+	width: 400px;
 	margin-right: 20px;
 }
 
@@ -94,6 +94,7 @@
 .mic-editor-wrapper .nav-tab-wrapper {
 	float: left;
 	width: 820px;
+	margin-bottom:20px
 }
 
 .mic-option {
